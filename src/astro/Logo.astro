@@ -17,6 +17,18 @@ const { siteTitle = "Luxoticars", href = "/" } = Astro.props;
   </span>
 </a>
 <style>
+  /*
+    Sized to sit level with the 14px/semibold username in the dash header.
+
+    20px rather than something nearer 14px because this is Futura: a geometric
+    sans with a small cap-height relative to its em, so at a matching pixel size
+    its capitals render visibly shorter than the username's letterforms. 16px
+    measured larger but read smaller. 20px puts the cap-heights roughly level.
+
+    Deliberately flat across breakpoints. A 20 -> 24 -> 36px ramp made the logo
+    2.6x the username on desktop and changed the header height at each
+    breakpoint.
+  */
   .logo__wordmark {
     display: inline-flex;
     font-size: var(--text-xl); /* 1.25rem = 20px */
@@ -28,6 +40,10 @@ const { siteTitle = "Luxoticars", href = "/" } = Astro.props;
     position: relative;
     padding-right: 0.5rem;
   }
+  /*
+    em-based so the mark tracks the wordmark's size instead of needing to be
+    re-tuned whenever it changes — rem values pin it to one font-size.
+  */
   sub {
     font-size: 0.5em;
     line-height: 1;
